@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap";
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+/* Import Bootstrsp Icons */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+    --sidenav-width: 300px;
+    --sidenav-collapsed-width: 15px;
+    --main-color: #8e17ac
+}
+
+body {
+    margin: 0;
+    background-color: white !important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: #8e17ac !important;
+}
+// button :hover {
+//     // background-color: #8e17ac !important;
+// }
+
+.text-link{
+    text-decoration: none;
+    color: #8e17ac;
+
+    :hover{
+        opacity: 0.8;
+    }
+}
+
+.bg-purple{
+    background-color: purple !important;
+}

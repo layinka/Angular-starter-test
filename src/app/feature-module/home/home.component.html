@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-12 m-1 d-flex justify-content-center align-items-center" >
+        @if(!(w3Service.chainId$ | async)){
+            <button (click)="reconnect()">Connect Wallet </button>
+        }
+        
+        
+    </div>
+</div>

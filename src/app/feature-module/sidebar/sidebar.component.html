@@ -1,0 +1,24 @@
+<!-- Sidebar Container -->
+<div class="sidenav-body-container" >
+    <div class="sidenav-body">
+        <h1 class="text-center fw-bolder" style="color: #8e17ac;"><a [routerLink]="'/'">ZarPay</a></h1>
+
+        <hr>
+
+        <ul class="navbar-nav" >
+            <li class="nav-item" *ngFor="let list of menuItems">
+                <a class="nav-link" [routerLink]="list.path" routerLinkActive="active">
+                    <i class="{{list.icon}}">
+                        <span class="text-container"> {{list.name}}</span>
+                    </i>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<!-- Toggle Button -->
+<button class="btn btn-transparent border toggle-button" (click)="this.sidenavService.toggleSidnav()"
+    [class.is-flipped]="sidenavService.isExpanded" type="button">
+    <i class="bi bi-list"></i>
+</button>
