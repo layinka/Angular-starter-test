@@ -26,13 +26,11 @@
     "@web3modal/wagmi": "^4.2.2",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "ethers": "^5.7.2",
     "ng2-search-filter": "^0.5.1",
     "ngx-spinner": "^16.0.2",
     "react": "^18.3.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "use-sync-external-store": "^1.2.2",
     "viem": "^2.12.5",
     "zone.js": "~0.14.3"
   },

@@ -14,10 +14,10 @@ import { FallbackTransport, formatUnits, http, parseUnits } from 'viem';
 import { type GetChainIdReturnType } from '@wagmi/core'
 import { coinbaseWallet, walletConnect } from '@wagmi/connectors';
 import { createWeb3Modal, emailConnector, Web3Modal } from '@web3modal/wagmi';
-import { ethers } from 'ethers';
+// import { ethers } from 'ethers';
 
-import { getEthersProvider } from '../../utils/wagmi-ethers-adapter';
-import { getEthersSigner } from '../../utils/wagmi-ethers-adapter-signer';
+// import { getEthersProvider } from '../../utils/wagmi-ethers-adapter';
+// import { getEthersSigner } from '../../utils/wagmi-ethers-adapter-signer';
 
 const projectId = environment.walletConnectProjectId;
 
@@ -109,8 +109,6 @@ export class Web3Service {
 
   // unwatchConnection : any;
 
-  ethersProvider?: ethers.providers.FallbackProvider | ethers.providers.JsonRpcProvider| ethers.providers.BaseProvider;
-  ethersSigner?: any;
 
   // walletConnect({ projectId: projectId, metadata, showQrModal: true }),
   //   injected({ /*shimDisconnect: true*/ }),
@@ -147,7 +145,7 @@ export class Web3Service {
       
       const chainId   = getChainId(wagmiConfig);
       if(chainId ){
-        this.ethersProvider = getEthersProvider(wagmiConfig)            
+                  
         this._chainId$.next(chainId );
       }
 
@@ -157,7 +155,7 @@ export class Web3Service {
           onChange:  async (chainId) => {
             console.log('Chain ID changed!', chainId)
             if(chainId ){
-              this.ethersProvider = getEthersProvider(wagmiConfig)
+              
               this._chainId$.next(chainId );
 
             }else{
@@ -170,7 +168,7 @@ export class Web3Service {
       this.unwatchAccount = watchAccount(wagmiConfig, {
         onChange: async (account) => {
           if(account && account.isConnected){
-            this.ethersSigner = await getEthersSigner(wagmiConfig)
+            
             this._account$.next(account.address);
             
           }else{
@@ -183,30 +181,6 @@ export class Web3Service {
 
     }, 500);
     
-
-    
-    setTimeout(async ()=>{
-      if(this.chainId && this.account ){
-        this.ethersSigner = await getEthersSigner(wagmiConfig)
-      }
-    },3000)
-
-    
-    
-
-    
-
-    // this.unwatchConnection = watchConnections(wagmiConfig, {
-    //   onChange: (connected) => {
-    //     if(connected && connected[0].connector.){
-    //       this._account$.next(account.address);
-    //     }else{
-    //       this._account$.next(undefined);
-    //     }
-        
-    //   }
-    // })
-
 
 
   }
@@ -245,32 +219,7 @@ export class Web3Service {
 
   }
 
-  
 
- 
-
-
-  // async getERC20Allowance(tokenAddress: `0x${string}`, contractToApprove: `0x${string}`, account: `0x${string}`, chainId? :number) {
-    
-  //   const allowance = await readContract({
-  //     address: tokenAddress,
-  //     abi: erc20ABI,
-  //     chainId,
-  //     functionName: 'allowance',
-  //     args: [account, contractToApprove]
-  //   })
-    
-  //   return allowance;
-  // }
-
-  // async fetchTotalSupply(tokenAddress: string){
-  //   const t= await this.getTokenInfo(tokenAddress as `0x${string}`)
-  //   if(t){
-  //     return t.totalSupply.value
-  //   }
-
-  //   return undefined
-  // }
 }
 
 
